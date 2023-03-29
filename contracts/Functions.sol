@@ -190,26 +190,26 @@ contract Functions7 {
         return(name1, name2);
     }
 
-//     // Values returned from a transaction are not available outside of EVM.
-//     // Use events to accomplish this (see events lesson)
-//     event NameChanged(string name);
+    // Values returned from a transaction are not available outside of EVM.
+    // Use events to accomplish this (see events lesson)
+    event NameChanged(string name);
 
-//     function setName1() public returns(string memory) {
-//         name = "New name";
-//         emit NameChanged(name);
-//         return name;
-//     }
+    function setName1() public returns(string memory) {
+        name = "New name";
+        emit NameChanged(name);
+        return name;
+    }
 
-//     function setName2() public returns(string memory newName) {
-//         newName = "New name";
-//         name = newName;
-//         return name;
-//     }
+    function setName2() public returns(string memory newName) {
+        newName = "New name";
+        name = newName;
+        return name;
+    }
 
-//     function setName3() public returns(string memory newName) {
-//         newName = setName2();
-//         emit NameChanged(newName);
-//         return newName;
-//     }
+    function setName3() public returns(string memory newName) {
+        newName = setName2();
+        emit NameChanged(newName);
+        return newName;
+    }
 }
 

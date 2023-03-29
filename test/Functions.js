@@ -212,19 +212,19 @@ describe('Functions', () => {
       expect(result[1]).to.equal('New name')
     })
 
-  //   it('uses events to inspect return values on write functions', async () => {
-  //     let transaction = await contract.setName1()
-  //     let result = await transaction.wait()
-  //     await expect(transaction).to.emit(contract, 'NameChanged')
-  //       .withArgs('New name')
-  //   })
+    it('uses events to inspect return values on write functions', async () => {
+      let transaction = await contract.setName1()
+      let result = await transaction.wait()
+      await expect(transaction).to.emit(contract, 'NameChanged')
+        .withArgs('New name')
+    })
 
-  //   it('can read return values from write functions inside the conract', async () => {
-  //     let transaction = await contract.setName3()
-  //     let result = await transaction.wait()
-  //     await expect(transaction).to.emit(contract, 'NameChanged')
-  //       .withArgs('New name')
-  //   })
+    it('can read return values from write functions inside the conract', async () => {
+      let transaction = await contract.setName3()
+      let result = await transaction.wait()
+      await expect(transaction).to.emit(contract, 'NameChanged')
+        .withArgs('New name')
+    })
 
   })
 })
