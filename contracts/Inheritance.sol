@@ -18,28 +18,19 @@ contract Ownable {
     }
 }
 
-contract Inheritance1 is Ownable {
+contract Inheritance1 is Ownable {   // Constructor is inherited from parent. Ownable modifier inherited from parent
     string public name = "Example 1";
-
-    // Constructor is inherited from parent
-    // Ownalbe modifier inherited from parent
-
     function setName(string memory _name) public onlyOwner {
         name = _name;
     }
 }
 
-contract Payable {
-    // Lets the contract receive Ether
+contract Payable {  // Lets the contract receive Ether    
     receive() external payable {}
 }
 
-contract Inheritance2 is Ownable, Payable {
-    // Inerits ownership from Ownable
-    // Inherits deposit functionality from Payable
-
-    // Withdraws ether funds from the contract
-    function withdraw() public onlyOwner {
+contract Inheritance2 is Ownable, Payable {    // Inerits ownership from Ownable. Inherits deposit functionality from Payable
+    function withdraw() public onlyOwner {    // Withdraws ether funds from the contract
         uint256 value = address(this).balance;
         (bool sent, ) = owner.call{value: value}("");
         require(sent);

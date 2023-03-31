@@ -8,7 +8,7 @@ describe('Loops', () => {
     it('demonsrates a for loop', async () => {
       const Contract = await ethers.getContractFactory('Loops1')
       let contract = await Contract.deploy()
-      expect(await contract.countEvenNumbers()).to.equal(5)
+      expect(await contract.countEvenNumbers()).to.equal(6)
     })
   })
 
@@ -27,6 +27,16 @@ describe('Loops', () => {
         .withArgs('3')
       await expect(transaction).to.emit(contract, 'LogNumber')
         .withArgs('4')
+      await expect(transaction).to.emit(contract, 'LogNumber')
+        .withArgs('5')      
+      await expect(transaction).to.emit(contract, 'LogNumber')
+        .withArgs('6')     
+      await expect(transaction).to.emit(contract, 'LogNumber')
+        .withArgs('7')      
+      await expect(transaction).to.emit(contract, 'LogNumber')
+        .withArgs('8')
+      await expect(transaction).to.emit(contract, 'LogNumber')
+        .withArgs('9')
     })
   })
 

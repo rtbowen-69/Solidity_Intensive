@@ -22,7 +22,7 @@ contract Conditionals1 {
 
     function evenOrOdd3(uint x) public pure returns (string memory) {
         return x % 2 == 0 ? "even" : "odd";
-    }
+    }   // All three functions do exactly the same thing written differenlty
 
 }
 

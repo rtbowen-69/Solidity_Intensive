@@ -29,6 +29,7 @@ describe('Inheritance', () => {
 
       await owner.sendTransaction({ to: contract.address, value: ether(1) })
       expect(await ethers.provider.getBalance(contract.address)).to.equal(ether(1))
+      console.log(contract.address)
       await contract.withdraw()
       expect(await ethers.provider.getBalance(contract.address)).to.equal(0)
 

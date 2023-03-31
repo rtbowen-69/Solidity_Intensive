@@ -32,13 +32,21 @@ describe('Events', () => {
       // Get all past events
       // https://docs.ethers.io/v5/getting-started/#getting-started--history
       let eventStream = await contract.queryFilter('MessageUpdated')
+      // console.log(eventStream)
       expect(eventStream.length).to.equal(3)
 
       // Check first event in the stream
       // Homework: check other values and other events
       let firstEvent = eventStream[0]
+      // console.log(eventStream[0])
       expect(firstEvent.args[1]).to.equal('Hey!')
 
+      firstEvent = eventStream[1]
+      // console.log(eventStream[1])
+      expect(firstEvent.args[1]).to.equal('Ho!')      
+
+      firstEvent = eventStream[2]
+      expect(firstEvent.args[1]).to.equal('Ha!')
 
       // Trigger event from user 2
       transaction = await contract.connect(user2).updateMessage('Huh!')
@@ -48,6 +56,7 @@ describe('Events', () => {
       let user2Filter = contract.filters.MessageUpdated(user2.address, null)
       eventStream = await contract.queryFilter(user2Filter)
       expect(eventStream.length).to.equal(1)
+      console.log(eventStream)
 
       // Make sure it's user 2's message
       // Homework: check other parameters

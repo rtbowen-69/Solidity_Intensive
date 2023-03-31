@@ -11,21 +11,17 @@ contract Ether1 {
     uint public value4 = 1000000000;
     uint public value5 = 1 ether;
     uint public value6 = 1000000000000000000;
+    uint public value7 = 1e18;
 }
 
 contract Ether2 {
-    // Allows contract to receive Ether
-    // msg.data must be empty
-    receive() external payable {}
+    receive() external payable {}  // Allows contract to receive Ether msg.data must be empty
 }
 
 contract Ether3 {
     uint public count = 0;
-
-    // Allows contract to receive Ether
-    // msg.data is not empty
-    // called as "fallback" if receive() not implemented
-    // You can also execute business logic inside these functions
+    // Allows contract to receive Ether and msg.data is not empty
+    // called as "fallback" if receive() not implemented.You can also execute business logic inside these functions
     fallback() external payable {
         count ++;
     }
@@ -35,18 +31,14 @@ contract Ether3 {
         return address(this).balance;
     }
 }
-
-
 // Transferring Ether
 contract Ether4 {
 
-    function transfer1(address payable _to) public payable {
-        // Don't do it this way...
+    function transfer1(address payable _to) public payable {  // Don't do it this way...
         _to.transfer(msg.value);
     }
 
-    function transfer2(address payable _to) public payable {
-        // Use #call() instead!
+    function transfer2(address payable _to) public payable {  // Use #call() instead!
         (bool sent, ) = _to.call{value: msg.value}("");
         require(sent, "Failed to send Ether");
     }

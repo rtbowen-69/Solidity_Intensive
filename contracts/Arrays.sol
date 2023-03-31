@@ -6,10 +6,10 @@ import "hardhat/console.sol";
 // Array initalization
 // Homework: try more data types!
 contract Arrays1 {
-    uint[] public array1 = [1, 2, 3];
+    uint[] public array1 = [1, 2, 3, 4];
     uint[] public array2; // this initializes an array of uints
     uint[10] public array3; // this initializes a fixed size array of 10 uints, default to 0
-    string[] public array4  = ["apple", "banana", "carrot"];
+    string[] public array4  = ["apple", "banana", "carrot", "Idiot"];
     string[] public array5; // this initializes an array of strings
     string[10] public array6; // this initializes a fixed size array of 10 uints, default to ""
 }

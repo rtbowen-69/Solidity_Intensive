@@ -11,7 +11,7 @@ contract Structs1 {
         bool completed;
     }
 
-    // Array of books
+    // Array of books .. All three array structs do exactly the same thing
     Book[] public books;
 
     function add1(string memory _title, string memory _author) public {
@@ -27,7 +27,6 @@ contract Structs1 {
         book.title = _title;
         book.author = _author;
         // completed is "false" by default
-
         books.push(book);
     }
 

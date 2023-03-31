@@ -18,6 +18,8 @@ describe('Ether', () => {
       expect(await contract.value1()).to.equal(await contract.value2())
       expect(await contract.value3()).to.equal(await contract.value4())
       expect(await contract.value5()).to.equal(await contract.value6())
+      expect(await contract.value5()).to.equal(await contract.value7())
+
     })
 
   })

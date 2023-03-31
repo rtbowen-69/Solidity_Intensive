@@ -12,6 +12,7 @@ describe('Arrays', () => {
       expect(await contract.array1(0)).to.equal(1)
       expect(await contract.array1(1)).to.equal(2)
       expect(await contract.array1(2)).to.equal(3)
+      expect(await contract.array1(3)).to.equal(4)
 
       // Note: this will fail because it's not initialized with default values
       // expect(await contract.array2(0)).to.equal(0)
@@ -23,6 +24,7 @@ describe('Arrays', () => {
       expect(await contract.array4(0)).to.equal('apple')
       expect(await contract.array4(1)).to.equal('banana')
       expect(await contract.array4(2)).to.equal('carrot')
+      expect(await contract.array4(3)).to.equal('Idiot')
 
       // Note: this will fail because it's not initialized with default values
       // expect(await contract.array5(0)).to.equal(0)

@@ -17,11 +17,13 @@ describe('Time Examples', () => {
       let now = await time.latest()
 
       // Uncomment this to see the current timestamp
-      // console.log(now)
+      console.log(now, 'time as of run of test')
 
-      let depositStartTime = now + 1000 // add 1,000 seconds
+      let depositStartTime = now + 2000 // add 1,000 seconds
+      console.log(depositStartTime, 'set deposit start time')
 
-      let withdrawStartTime = now + 2000 // add 2,000 seconds
+      let withdrawStartTime = now + 6000 // add 2,000 seconds
+      console.log(withdrawStartTime, 'set withdraw to withdraw start time')
 
       // Deploy contract with time settings
       const Contract = await ethers.getContractFactory('Time1')
@@ -32,6 +34,7 @@ describe('Time Examples', () => {
 
       // Advance time past deposit start time + 1 second
       await time.increaseTo(depositStartTime + 1);
+      console.log(depositStartTime, 'increased test to deposit start time')
 
       // Desposit
       await contract.deposit({ value: ether(1) })
@@ -42,6 +45,7 @@ describe('Time Examples', () => {
 
       // Advance time past withdraw start time + 1 second
       await time.increaseTo(withdrawStartTime + 1);
+      console.log(withdrawStartTime, 'increased time to withdraw start time')
 
       // Desposit
       await contract.withdraw()
